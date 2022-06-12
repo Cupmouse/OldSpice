@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.wb.internal.core.editor.palette.dialogs.CategoryAddDialog">
+		<item value="434" key="height"/>
+		<item value="963" key="width"/>
+		<item value="152" key="y"/>
+		<item value="201" key="x"/>
+	</section>
+	<section name="org.eclipse.wb.internal.core.utils.ui.dialogs.StringsDialog">
+		<item value="357" key="height"/>
+		<item value="401" key="width"/>
+		<item value="190" key="y"/>
+		<item value="482" key="x"/>
+	</section>
+	<section name="org.eclipse.wb.internal.core.editor.actions.errors.ErrorsDialog">
+		<item value="738" key="height"/>
+		<item value="1184" key="width"/>
+		<item value="0" key="y"/>
+		<item value="91" key="x"/>
+	</section>
+	<section name="org.eclipse.wb.internal.core.editor.palette.dialogs.ComponentAddDialog">
+		<item value="413" key="height"/>
+		<item value="1023" key="width"/>
+		<item value="162" key="y"/>
+		<item value="0" key="x"/>
+	</section>
+	<section name="org.eclipse.wb.internal.core.editor.actions.assistant.LayoutAssistantWindow">
+		<item value="295" key="y"/>
+		<item value="565" key="x"/>
+	</section>
+	<section name="org.eclipse.wb.internal.core.model.property.editor.string.StringPropertyDialog">
+		<item value="396" key="height"/>
+		<item value="946" key="width"/>
+		<item value="171" key="y"/>
+		<item value="210" key="x"/>
+	</section>
+	<section name="org.eclipse.wb.internal.core.editor.palette.dialogs.ComponentEditDialog">
+		<item value="382" key="height"/>
+		<item value="963" key="width"/>
+		<item value="178" key="y"/>
+		<item value="201" key="x"/>
+	</section>
+	<section name="org.eclipse.wb.internal.core.editor.errors.report2.CreateReportDialog">
+		<item value="373" key="height"/>
+		<item value="963" key="width"/>
+		<item value="182" key="y"/>
+		<item value="201" key="x"/>
+	</section>
+</section>

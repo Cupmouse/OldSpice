@@ -1,0 +1,12 @@
+package net.sssanma.spice.core.ui.parts;
+
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
+
+public class PartCopyableLabel extends Label {
+
+	public PartCopyableLabel(Composite paramComposite, int paramInt) {
+		super(paramComposite, paramInt);
+	}
+
+}

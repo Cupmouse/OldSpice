@@ -1,0 +1,315 @@
+package net.sssanma.spice.core.ui.components;
+
+import net.sssanma.spice.core.Spice;
+import net.sssanma.spice.core.Time;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.dnd.DND;
+import org.eclipse.swt.dnd.DropTarget;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseMoveListener;
+import org.eclipse.swt.events.MouseWheelListener;
+import org.eclipse.swt.events.PaintEvent;
+import org.eclipse.swt.events.PaintListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.widgets.Canvas;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Slider;
+import org.eclipse.wb.swt.SWTResourceManager;
+
+import swing2swt.layout.BorderLayout;
+
+public class ComponentTimeline extends Composite {
+	private Canvas timeLine;
+	private int maxX = 100;
+	private Time max;
+	private int leftMargin = 100;
+	private int rightMargin = 100;
+	private float zoomLevel = .2F;
+	private int maxZoomLevel = 6;
+	private Slider verticalSlider;
+	private Slider horizonalSlider;
+	private int fps = 60;
+	private Time currentTime = new Time(fps, 0);
+	private boolean movingCurrentTime;
+	private long movingCurrentTimeCoolTime;
+	private int contentsStartX = 65;
+	private int contentsStartY;
+	private int fontHeight;
+	private DropTarget dropTarget;
+	private Spice spice;
+
+	public ComponentTimeline(Composite arg0, int arg1, Spice spice) {
+		super(arg0, arg1);
+		addMouseWheelListener(new MouseWheelListener() {
+			@Override
+			public void mouseScrolled(MouseEvent e) {
+				if (e.count == 0) return;
+				
+				// ズーム前のマウスの位置
+				int beforeMouseX = horizonalSlider.getSelection() + e.x;
+				
+//				
+//				
+//				// マウスがある位置のフレーム
+//				double beforeSelectFrame = (double)beforeMouseX / metorSpace;
+
+				int afterSliderX = 0;
+				if (e.count > 0 && zoomLevel + .2 <= maxZoomLevel) {
+					afterSliderX = beforeMouseX * 2 - e.x;
+					zoomLevel += 0.2;
+				} else if (e.count < 0 && zoomLevel - .2 > .2){
+					afterSliderX = beforeMouseX / 2 - e.x;
+					zoomLevel -= 0.2;
+				} else {
+					afterSliderX = 0;
+				}
+				
+//				// ズーム前に選択されていたフレームのズーム後の位置
+//				double afterSelectFrameX = beforeSelectFrame * metorSpace;
+				// ズーム後のスライダーの位置
+//				int afterSliderX = (int) (afterSelectFrameX - e.x);
+				
+				changeSliderMax();
+				horizonalSlider.setSelection(afterSliderX);
+				
+				horizonalSlider.setIncrement(e.count > 0 ? horizonalSlider.getIncrement() + 1 : horizonalSlider.getIncrement() - 1);
+				timeLine.redraw();
+			}
+		});
+		this.spice = spice;
+		
+		setLayout(new BorderLayout(0, 0));
+		
+		timeLine = new Canvas(this, SWT.NO_BACKGROUND);
+		
+		dropTarget = new DropTarget(timeLine, DND.DROP_MOVE);
+		timeLine.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseDown(MouseEvent e) {
+				if (e.y < contentsStartY && e.x > contentsStartX) movingCurrentTime = true;
+			}
+			
+			@Override
+			public void mouseUp(MouseEvent e) {
+				movingCurrentTime = false;
+				movingCurrentTimeCoolTime = 0;
+			}
+		});
+		timeLine.addMouseMoveListener(new MouseMoveListener() {
+			
+			@Override
+			public void mouseMove(MouseEvent e) {
+				if (movingCurrentTime) {
+					Time clickTime = pxToTime(horizonalSlider.getSelection() + e.x);
+					
+					if (clickTime.getCurrentFrame() > maxX)
+						clickTime = new Time(fps, maxX);
+					else if (clickTime.getCurrentFrame() < 0)
+						clickTime = new Time(fps, 0);
+
+					if (clickTime.compare(currentTime) == 0) return;
+					
+					Point maxsize = timeLine.getSize();
+					int currentLineX = timeToPx(clickTime);
+					int canvasCurrentLineX = currentLineX - horizonalSlider.getSelection();
+					
+					if (canvasCurrentLineX + getFrameSpace() > maxsize.x || canvasCurrentLineX <= contentsStartX) {
+						if (movingCurrentTimeCoolTime > System.currentTimeMillis()) return;
+						if (canvasCurrentLineX <= contentsStartX) {
+							if (clickTime.getCurrentFrame() == 0) {
+								horizonalSlider.setSelection(0);
+							} else {
+								horizonalSlider.setSelection(currentLineX - getFrameSpace());
+							}
+						} else {
+							if (clickTime.compare(max) == 0) {
+								horizonalSlider.setSelection(horizonalSlider.getMaximum());
+							} else {
+								horizonalSlider.setSelection(currentLineX - maxsize.x + getFrameSpace());
+							}
+						}
+						movingCurrentTimeCoolTime = System.currentTimeMillis() + 70;
+					}
+
+					currentTime = clickTime;
+					
+					timeLine.redraw();
+				}
+			}
+		});
+		
+		horizonalSlider = new Slider(this, SWT.NONE);
+		horizonalSlider.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				timeLine.redraw();
+			}
+		});
+		horizonalSlider.setLayoutData(BorderLayout.SOUTH);
+		
+		verticalSlider = new Slider(this, SWT.VERTICAL);
+		verticalSlider.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				timeLine.redraw();
+			}
+		});
+		verticalSlider.setLayoutData(BorderLayout.EAST);
+		timeLine.addPaintListener(new PaintListener() {
+			
+			@Override
+			public void paintControl(PaintEvent e) {
+				changeSliderMax();
+				redraw(e.gc);
+			}
+		});
+		
+		this.max = new Time(fps, maxX);
+	}
+	private void changeSliderMax() {
+		horizonalSlider.setMaximum(timeToPx(max) + rightMargin - timeLine.getSize().x);
+	}
+	private int getFrameSpace() {
+		return 70;
+	}
+	
+	private int timeToPx(Time time) {
+		return (int) (time.getCurrentFrame() * getFrameSpace() * getZoom() + leftMargin);
+	}
+	private Time pxToTime(long px) {
+		return new Time(fps, (long) ((px - leftMargin) / getZoom() / getFrameSpace()));
+	}
+	private void redraw(GC gc) {
+		Point max = timeLine.getSize();
+		Image temp = new Image(gc.getDevice(), max.x, max.y);
+		GC tempGC = new GC(temp);
+		fontHeight = tempGC.getFontMetrics().getHeight();
+		contentsStartY = tempGC.getFontMetrics().getHeight() + 3;
+		drawMetor(tempGC);
+		drawTimeLine(tempGC);
+		gc.drawImage(temp , 0, 0);
+		tempGC.dispose();
+		temp.dispose();
+	}
+	
+	private void drawMetor(GC gc) {
+		Point max = timeLine.getSize();
+		int canvasLeftPosX = horizonalSlider.getSelection();
+		int canvasRightPosX = canvasLeftPosX + max.x;
+		
+		Time renderStartTime = pxToTime(canvasLeftPosX - getFrameSpace());
+		Time renderEndTime = pxToTime((long) (canvasRightPosX + getFrameSpace() * getZoom() * 2));
+		long renderStartFrame = renderStartTime.getCurrentFrame();
+		long renderEndFrame = renderEndTime.getCurrentFrame();
+		for (long i = renderStartFrame; i < renderEndFrame; i+=getZoom()) {
+			Time time = new Time(fps, i);
+			if (time.compare(this.max) > 0) break;
+			int x = timeToPx(time) - canvasLeftPosX;
+			String formattedTime = time.toTime();
+			Point strSize = gc.textExtent(formattedTime);
+			gc.drawString(formattedTime, x - strSize.x / 2, 0);
+			gc.drawLine(x, fontHeight - 2, x, fontHeight + 3);
+		}
+		
+		
+//		
+//		int margin = (int) (timeToPx(pxToTime(canvasLeftPosX + 100)) - canvasLeftPosX);
+//		System.out.println(pxToTime(margin).toTime());
+//		int renderMaxX = canvasRightPosX + 100;
+//		Time baseTime = pxToTime(margin + horizonalSlider.getSelection());
+//		switch(zoomLevel) {
+//		default:
+//			for (int i = 0; i < maxX; i++) {
+//				Time time = new Time(fps, i);
+//				int timeY = timeToPx(time)- canvasLeftPosX + margin;
+//				String formattedTime = time.toTime();
+//				Point strSize = gc.textExtent(formattedTime);
+//				gc.drawString(formattedTime, timeY - strSize.x / 2, 0);
+//				gc.drawLine(timeY, fontMaxY - 2, timeY, fontMaxY + 3);
+//			}
+//			for (int i = margin; i < renderMaxX - canvasLeftPosX; i+=metorSpace) {
+//				System.out.println(i + horizonalSlider.getSelection());
+//				Time time = pxToTime(i + horizonalSlider.getSelection());
+//				if (time.compare(new Time(fps, maxX)) > 0) break;
+//				String formattedTime = time.toTime();
+//				Point strSize = gc.textExtent(formattedTime);
+//				gc.drawString(formattedTime, i - strSize.x / 2, 0);
+//				gc.drawLine(i, fontMaxY - 2, i, fontMaxY + 3);
+//			}
+//		}
+
+		
+		
+		
+		//		int j = 3;
+//		int x;
+//		for (int i = horizonalSlider.getSelection() / metorSpace; (x = i * metorSpace  - horizonalSlider.getSelection()) < max.x ; i++) {
+//			if (j % 3 == 0) {
+//				String formattedTime = pxToTime(x + horizonalSlider.getSelection()).toTime();
+//				Point strSize = gc.textExtent(formattedTime);
+//				gc.drawString(formattedTime, x - strSize.x / 2, 0);
+//				gc.drawLine(x, fontMaxY - 2, x, fontMaxY + 3);
+//			} else {
+//				gc.drawLine(x, fontMaxY + 1, x, fontMaxY + 3);
+//			}
+//			j++;
+//		}
+//		int x;
+//		int j = 0;
+//		for (int i = horizonalSlider.getSelection() / getZoom(); (x = i * metorSpace - horizonalSlider.getSelection()) < max.x ; i++) {
+//			if (i % metorSpace == 0) {
+//				if (j % 3 == 0) {
+//					gc.drawLine(x, fontMaxY - 1, x, fontMaxY + 3);
+//					String formattedTime = pxToTime(x + horizonalSlider.getSelection()).toTime();
+//					Point strSize = gc.textExtent(formattedTime);
+//					gc.drawString(formattedTime, x - strSize.x / 2, 0);
+//				} else {
+//					gc.drawLine(x, fontMaxY + 1, x, fontMaxY + 3);
+//				}
+//				j++;
+//			}
+//		}
+	}
+	private double getZoom() {
+		return Math.pow(2., zoomLevel - maxZoomLevel);
+	}
+	private void drawTimeLine(GC gc) {
+		Point max = timeLine.getSize();
+
+		int canvasLeftPosX = horizonalSlider.getSelection();
+		int currentLine = timeToPx(currentTime) - canvasLeftPosX;
+		
+		// 選択中のフレームの背景を色付けする
+
+		gc.setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+		gc.fillRectangle(currentLine, contentsStartY, getFrameSpace(), max.y - contentsStartY);
+
+		gc.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
+		gc.drawLine(currentLine, fontHeight - 2, currentLine, max.y);
+		
+		// 左側を白くする
+		gc.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		gc.fillRectangle(0, 0, contentsStartX, max.y);
+
+		gc.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
+		// コンテンツとの区切り線
+		gc.drawLine(0, contentsStartY, max.x, contentsStartY);
+		
+		gc.drawLine(contentsStartX, 0, contentsStartX, max.y);
+		
+		// コンテンツのレイヤー線
+		for (int i = 0; i * 25 < max.y; i++) {
+			int y = i * 25 + contentsStartY;
+			gc.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
+			gc.drawLine(0, y, max.x, y);
+			gc.drawString("レイヤ" + i, 5, y + gc.textExtent("レイヤ" + i).y / 4);
+		}
+	}
+}

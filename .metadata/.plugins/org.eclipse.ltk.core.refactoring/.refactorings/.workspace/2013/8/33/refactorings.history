@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="リソース &apos;net.sssanma.spice.core&apos; を削除" deleteContents="false" description="リソース &apos;net.sssanma.spice.core&apos; を削除" element1="/net.sssanma.spice.core" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1376281413306"/>&#x0A;<refactoring accessors="true" comment="Delete 0 elements from ワークスペース" description="要素の削除" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1376353376100" subPackages="false" version="1.0"/>
+</session>

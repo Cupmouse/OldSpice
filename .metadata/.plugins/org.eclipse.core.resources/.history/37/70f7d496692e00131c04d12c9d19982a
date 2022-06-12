@@ -1,0 +1,177 @@
+package net.sssanma.spice.core.ui.parts;
+
+import net.sssanma.spice.core.ui.parts.listeners.PartListenerSuperSpinner;
+
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.graphics.Cursor;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.events.MouseMoveListener;
+import org.eclipse.swt.events.KeyAdapter;
+import org.eclipse.swt.events.KeyEvent;
+
+import de.congrace.exp4j.Calculable;
+import de.congrace.exp4j.ExpressionBuilder;
+
+import org.eclipse.swt.events.FocusAdapter;
+import org.eclipse.swt.events.FocusEvent;
+import org.eclipse.swt.events.PaintListener;
+import org.eclipse.swt.events.PaintEvent;
+
+public class PartSuperSpinner extends Composite {
+	private int superValue;
+	private Text text;
+	private int mouseDownSuperValue;
+	private int mouseDownStartX;
+	private boolean valueMoving;
+	private Label lblPx;
+	private boolean mouseDown;
+	private boolean textMode;
+	private PartListenerSuperSpinner listener;
+	private String unit;
+	private int minValue;
+	private int maxValue;
+	
+	public PartSuperSpinner(final Composite parent, int paramInt, PartListenerSuperSpinner listener, int defaultValue, String unit, int minValue, int maxValue) {
+		super(parent, paramInt);
+		this.minValue = minValue;
+		this.maxValue = maxValue;
+		this.unit = unit;
+		setLayout(null);
+		this.listener = listener;
+		
+		text = new Text(this, SWT.NONE);
+		text.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent arg0) {
+				if (textMode) sucsessTextMode();
+			}
+		});
+		text.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.character == SWT.CR || e.keyCode == SWT.LF) {
+					sucsessTextMode();
+				}
+			}
+		});
+		text.setBounds(0, 0, 100, 20);
+		text.setText("0");
+		text.setVisible(false);
+		
+		lblPx = new Label(this, SWT.BORDER);
+		lblPx.addPaintListener(new PaintListener() {
+			public void paintControl(PaintEvent paramPaintEvent) {
+				GC pgc = paramPaintEvent.gc;
+				Point size = lblPx.getSize();
+				int lblHeight = size.y;
+				int lineHeight = lblHeight - 1;
+				pgc.drawLine(0, lineHeight, size.x, lineHeight);
+			}
+		});
+		lblPx.addMouseMoveListener(new MouseMoveListener() {
+			public void mouseMove(MouseEvent paramMouseEvent) {
+				if (mouseDown) {
+					valueMoving = true;
+					setSuperValue(paramMouseEvent.x - mouseDownStartX + mouseDownSuperValue, true);
+				}
+			}
+		});
+		lblPx.setCursor(new Cursor(getDisplay(), SWT.CURSOR_SIZEWE));
+		lblPx.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(MouseEvent paramMouseEvent) {
+				if (textMode) {
+					sucsessTextMode();
+				} else {
+					mouseDown = true;
+					mouseDownStartX = paramMouseEvent.x;
+					mouseDownSuperValue = superValue;
+				}
+			}
+			@Override
+			public void mouseUp(MouseEvent paramMouseEvent) {
+				// 値が変化してなかったらクリックとみなす
+				if (mouseDown && !valueMoving) {
+					textMode();
+				} else {
+					valueMoving = false;
+				}
+				mouseDown = false;
+			}
+		});
+		lblPx.setBounds(3, 0, 97, 18);
+		lblPx.setText("1000000000" + (unit != null ? (" " + unit) : ""));
+		this.superValue = defaultValue < minValue ? minValue : defaultValue;
+		
+		updateTexts();
+	}
+	
+	
+	private void textMode() {
+		textMode = true;
+		updateTexts();
+		text.setVisible(true);
+		lblPx.setVisible(false);
+		text.forceFocus();
+		text.selectAll();
+	}
+
+	public void detectSuperSpinnerNeedExitTextMode() {
+		if (textMode) sucsessTextMode();
+	}
+
+	private void sucsessTextMode() {
+		textMode = false;
+		try {
+			setSuperValue(Integer.parseInt(text.getText()), true);
+		} catch (NumberFormatException e) {
+			try {
+				Calculable calc = new ExpressionBuilder(text.getText()).build();
+		        setSuperValue((int) Math.round(calc.calculate()), true);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		}
+		text.setVisible(false);
+		lblPx.setVisible(true);
+	}
+	
+	private void abortTextMode() {
+		textMode = false;
+		text.setVisible(false);
+		lblPx.setVisible(true);
+	}
+	
+	public void setSuperValue(int superValue, boolean callEvent) {
+		if (textMode) abortTextMode();
+		
+		if (superValue < minValue)
+			this.superValue = minValue;
+		else if (superValue > maxValue)
+			this.superValue = maxValue;
+		else
+			this.superValue = superValue;
+		
+		updateTexts();
+		if (callEvent) listener.onSuperSpinnerChange(this);
+	}
+	
+	private void updateTexts() {
+		lblPx.setText(superValue + " " + (unit != null ? (" " + unit) : ""));
+		text.setText(String.valueOf(superValue));
+	}
+
+	public int getSuperValue() {
+		return superValue;
+	}
+	
+	public boolean isTextEditMode() {
+		return textMode;
+	}
+}

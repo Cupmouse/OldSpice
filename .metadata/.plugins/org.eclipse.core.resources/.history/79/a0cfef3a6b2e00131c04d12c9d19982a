@@ -1,0 +1,20 @@
+package net.sssanma.spice.core.ui.parts;
+
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
+
+public class PartCopyableLabel extends Label {
+
+	public PartCopyableLabel(Composite paramComposite, int paramInt) {
+		super(paramComposite, paramInt);
+		addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(MouseEvent paramMouseEvent) {
+				
+			}
+		});
+	}
+
+}

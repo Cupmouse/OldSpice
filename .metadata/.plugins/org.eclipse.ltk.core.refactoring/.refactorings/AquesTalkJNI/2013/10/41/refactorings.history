@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;jna-4.0.0.jar&apos; to &apos;lib&apos;&#x0D;&#x0A;- 元のプロジェクト: &apos;AquesTalkJNI&apos;&#x0D;&#x0A;- 宛先要素: &apos;lib&apos;&#x0D;&#x0A;- オリジナル要素: &apos;jna-4.0.0.jar&apos;&#x0D;&#x0A;- リファクタリングされた要素の参照を更新" description="ファイルを移動する" element1="nativelib/jna-4.0.0.jar" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1381480909190" target="lib" units="0" version="1.0"/>
+</session>

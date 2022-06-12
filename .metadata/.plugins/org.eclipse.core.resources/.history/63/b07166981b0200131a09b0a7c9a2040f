@@ -1,0 +1,193 @@
+package net.sssanma.spice.core.parts;
+
+import javax.annotation.PostConstruct;
+
+import net.sssanma.spice.core.utilities.FormatUtil;
+import net.sssanma.spice.core.utilities.FormatUtil.Format;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseWheelListener;
+import org.eclipse.swt.events.PaintEvent;
+import org.eclipse.swt.events.PaintListener;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.widgets.Canvas;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Slider;
+
+import swing2swt.layout.BorderLayout;
+
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+
+public class TimelinePart {
+	private Canvas timeLine;
+	private int maxX = 800;
+	private ZoomLevel zoomLevel = ZoomLevel.Z1;
+	private Slider verticalSlider;
+	private Slider horizonalSlider;
+	private int fps = 60;
+
+	@PostConstruct
+	public void createComposite(final Composite parent) {
+		parent.setLayout(new BorderLayout(0, 0));
+		timeLine = new Canvas(parent, SWT.NONE);
+		
+		horizonalSlider = new Slider(parent, SWT.NONE);
+		horizonalSlider.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				timeLine.redraw();
+			}
+		});
+		horizonalSlider.setLayoutData(BorderLayout.SOUTH);
+		
+		verticalSlider = new Slider(parent, SWT.VERTICAL);
+		verticalSlider.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				timeLine.redraw();
+			}
+		});
+		verticalSlider.setLayoutData(BorderLayout.EAST);
+		timeLine.addPaintListener(new PaintListener() {
+			
+			@Override
+			public void paintControl(PaintEvent e) {
+				drawTimeLine(e.gc);
+			}
+		});
+		parent.addMouseWheelListener(new MouseWheelListener() {
+			
+			@Override
+			public void mouseScrolled(MouseEvent e) {
+				if (e.count == 0) return;
+				
+				// ズーム前のマウスの位置
+				int beforeMouseX = horizonalSlider.getSelection() + e.x;
+				// マウスがある位置のフレーム
+				double beforeSelectFrame = (double)beforeMouseX / zoomLevel.getOneFrameSpace();
+				
+				if (e.count > 0) {
+					// ズーム
+					zoomLevel = zoomLevel.zoom();
+				} else {
+					// 縮小
+					zoomLevel = zoomLevel.zoomOut();
+				}
+				
+				// ズーム前に選択されていたフレームのズーム後の位置
+				double afterSelectFrameX = beforeSelectFrame * zoomLevel.getOneFrameSpace();
+				// ズーム後のスライダーの位置
+				int afterSliderX = (int) (afterSelectFrameX - e.x);
+				
+				horizonalSlider.setMaximum(zoomLevel.getOneFrameSpace() * maxX + 10);
+				horizonalSlider.setSelection(afterSliderX);
+				
+				horizonalSlider.setIncrement(e.count > 0 ? horizonalSlider.getIncrement() + 1 : horizonalSlider.getIncrement() - 1);
+				timeLine.redraw();
+			}
+		});
+	}
+	
+	private void drawTimeLine(GC gc) {
+		Point max = timeLine.getSize();
+		
+		int fontMaxY = gc.getFontMetrics().getHeight();
+		int contentsStartY = fontMaxY + 3;
+		
+		
+		
+		// 時間軸
+		int timeX;
+		int lineSpace = zoomLevel.getOneFrameSpace();
+		for (int i = horizonalSlider.getSelection() / lineSpace; (timeX = i * lineSpace - horizonalSlider.getSelection()) < max.x ; i++) {
+			if (zoomLevel.getFormat() == Format.HOUR && i % (fps * 60 * 60) == 0 ||
+					zoomLevel.getFormat() == Format.HOUR_MIN && i % (fps * 60) == 0 ||
+					zoomLevel.getFormat() == Format.HOUR_MIN_SEC && i % fps == 0 ||
+					zoomLevel.getFormat() == Format.HOUR_MIN_SEC_FRAME |
+					zoomLevel.getFormat() == Format.FRAME) {
+				String formattedTime = FormatUtil.toTime(fps, i, zoomLevel.getFormat());
+				
+				Point strSize = gc.textExtent(formattedTime);
+				
+				gc.drawString(formattedTime, timeX - strSize.x / 2, 3);
+				gc.setForeground(new Color(gc.getDevice(), i % fps == 0 ? new RGB(0, 0, 0) : new RGB(50, 50, 50)));
+				gc.drawLine(timeX, contentsStartY, timeX, max.y);
+			}
+		}
+		gc.setForeground(new Color(gc.getDevice(), new RGB(0, 0, 0)));
+
+		// コンテンツとの区切り線
+		gc.drawLine(0, contentsStartY, max.x, contentsStartY);
+
+		// コンテンツのレイヤー線
+		for (int i = 0; i * 40 < max.y; i++) {
+			int y = i * 40 + contentsStartY;
+			gc.drawLine(0, y, max.x, y);
+		}
+	}
+	
+	public enum ZoomLevel {
+		Z1(1, Format.HOUR_MIN),
+		Z2(1, Format.HOUR_MIN_SEC),
+		Z3(2, Format.HOUR_MIN_SEC),
+		Z4(4, Format.HOUR_MIN_SEC),
+		Z5(8, Format.HOUR_MIN_SEC),
+		FRAME(64, Format.FRAME),;
+		
+		private Format format;
+		private int oneFrameSpace;
+		
+		private ZoomLevel(int oneFrameSpace, Format format) {
+			this.oneFrameSpace = oneFrameSpace;
+			this.format = format;
+		}
+		
+		public Format getFormat() {
+			return format;
+		}
+		public int getOneFrameSpace() {
+			return oneFrameSpace;
+		}
+		public ZoomLevel zoom() {
+			switch (this) {
+			case FRAME:
+				return FRAME;
+			case Z1:
+				return Z2;
+			case Z2:
+				return Z3;
+			case Z3:
+				return Z4;
+			case Z4:
+				return Z5;
+			case Z5:
+				return FRAME;
+			default:
+				return null;
+			}
+		}
+		public ZoomLevel zoomOut() {
+			switch (this) {
+			case FRAME:
+				return Z4;
+			case Z1:
+				return Z1;
+			case Z2:
+				return Z1;
+			case Z3:
+				return Z2;
+			case Z4:
+				return Z3;
+			case Z5:
+				return Z4;
+			default:
+				return null;
+			}
+		}
+	}
+}

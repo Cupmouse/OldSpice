@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="2.0.2" sequence="1" timestamp="1381621402231" analysisTimestamp="1381621387708" release="">
+  <Project projectName="Spice">
+    <Jar>C:\Users\sssanma\Dropbox\Spice\Spice\bin</Jar>
+    <AuxClasspathEntry>C:\Users\sssanma\Dropbox\Spice\Spice\bin</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\sssanma\Dropbox\Spice\Spice\lib\swt.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\sssanma\Dropbox\Spice\Spice\swing2swt.jar</AuxClasspathEntry>
+    <SrcDir>C:\Users\sssanma\Dropbox\Spice\Spice\src\main\java</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="NP_LOAD_OF_KNOWN_NULL_VALUE" priority="2" abbrev="NP" category="STYLE" first="1">
+    <Class classname="de.congrace.exp4j.FunctionToken">
+      <SourceLine classname="de.congrace.exp4j.FunctionToken" sourcefile="FunctionToken.java" sourcepath="de/congrace/exp4j/FunctionToken.java"/>
+    </Class>
+    <Method classname="de.congrace.exp4j.FunctionToken" name="&lt;init&gt;" signature="(Ljava/lang/String;Lde/congrace/exp4j/CustomFunction;)V" isStatic="false">
+      <SourceLine classname="de.congrace.exp4j.FunctionToken" start="13" end="23" startBytecode="0" endBytecode="24" sourcefile="FunctionToken.java" sourcepath="de/congrace/exp4j/FunctionToken.java"/>
+    </Method>
+    <SourceLine classname="de.congrace.exp4j.FunctionToken" start="15" end="15" startBytecode="13" endBytecode="13" sourcefile="FunctionToken.java" sourcepath="de/congrace/exp4j/FunctionToken.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="net.sssanma.spice.core.Spice">
+      <SourceLine classname="net.sssanma.spice.core.Spice" sourcefile="Spice.java" sourcepath="net/sssanma/spice/core/Spice.java"/>
+    </Class>
+    <Field classname="net.sssanma.spice.core.Spice" name="comppreview" signature="Lnet/sssanma/spice/core/ui/components/ComponentPreview;" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.Spice" sourcefile="Spice.java" sourcepath="net/sssanma/spice/core/Spice.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.Spice" start="43" end="43" startBytecode="114" endBytecode="114" sourcefile="Spice.java" sourcepath="net/sssanma/spice/core/Spice.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="net.sssanma.spice.core.Spice">
+      <SourceLine classname="net.sssanma.spice.core.Spice" sourcefile="Spice.java" sourcepath="net/sssanma/spice/core/Spice.java"/>
+    </Class>
+    <Field classname="net.sssanma.spice.core.Spice" name="compresources" signature="Lnet/sssanma/spice/core/ui/components/ComponentResource;" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.Spice" sourcefile="Spice.java" sourcepath="net/sssanma/spice/core/Spice.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.Spice" start="40" end="40" startBytecode="86" endBytecode="86" sourcefile="Spice.java" sourcepath="net/sssanma/spice/core/Spice.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="net.sssanma.spice.core.Spice">
+      <SourceLine classname="net.sssanma.spice.core.Spice" sourcefile="Spice.java" sourcepath="net/sssanma/spice/core/Spice.java"/>
+    </Class>
+    <Field classname="net.sssanma.spice.core.Spice" name="project" signature="Lnet/sssanma/spice/core/Project;" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.Spice" sourcefile="Spice.java" sourcepath="net/sssanma/spice/core/Spice.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.Spice" start="68" end="68" startBytecode="2" endBytecode="2" sourcefile="Spice.java" sourcepath="net/sssanma/spice/core/Spice.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="net.sssanma.spice.core.ui.components.ComponentPreview">
+      <SourceLine classname="net.sssanma.spice.core.ui.components.ComponentPreview" sourcefile="ComponentPreview.java" sourcepath="net/sssanma/spice/core/ui/components/ComponentPreview.java"/>
+    </Class>
+    <Field classname="net.sssanma.spice.core.ui.components.ComponentPreview" name="spice" signature="Lnet/sssanma/spice/core/Spice;" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.ui.components.ComponentPreview" sourcefile="ComponentPreview.java" sourcepath="net/sssanma/spice/core/ui/components/ComponentPreview.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.ui.components.ComponentPreview" start="20" end="20" startBytecode="8" endBytecode="8" sourcefile="ComponentPreview.java" sourcepath="net/sssanma/spice/core/ui/components/ComponentPreview.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="net.sssanma.spice.core.ui.components.ComponentResource">
+      <SourceLine classname="net.sssanma.spice.core.ui.components.ComponentResource" sourcefile="ComponentResource.java" sourcepath="net/sssanma/spice/core/ui/components/ComponentResource.java"/>
+    </Class>
+    <Field classname="net.sssanma.spice.core.ui.components.ComponentResource" name="dragSource" signature="Lorg/eclipse/swt/dnd/DragSource;" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.ui.components.ComponentResource" sourcefile="ComponentResource.java" sourcepath="net/sssanma/spice/core/ui/components/ComponentResource.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.ui.components.ComponentResource" start="121" end="121" startBytecode="444" endBytecode="444" sourcefile="ComponentResource.java" sourcepath="net/sssanma/spice/core/ui/components/ComponentResource.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="net.sssanma.spice.core.ui.components.ComponentTimeline">
+      <SourceLine classname="net.sssanma.spice.core.ui.components.ComponentTimeline" sourcefile="ComponentTimeline.java" sourcepath="net/sssanma/spice/core/ui/components/ComponentTimeline.java"/>
+    </Class>
+    <Field classname="net.sssanma.spice.core.ui.components.ComponentTimeline" name="dropTarget" signature="Lorg/eclipse/swt/dnd/DropTarget;" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.ui.components.ComponentTimeline" sourcefile="ComponentTimeline.java" sourcepath="net/sssanma/spice/core/ui/components/ComponentTimeline.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.ui.components.ComponentTimeline" start="57" end="57" startBytecode="108" endBytecode="108" sourcefile="ComponentTimeline.java" sourcepath="net/sssanma/spice/core/ui/components/ComponentTimeline.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="net.sssanma.spice.core.ui.components.ComponentTimeline">
+      <SourceLine classname="net.sssanma.spice.core.ui.components.ComponentTimeline" sourcefile="ComponentTimeline.java" sourcepath="net/sssanma/spice/core/ui/components/ComponentTimeline.java"/>
+    </Class>
+    <Field classname="net.sssanma.spice.core.ui.components.ComponentTimeline" name="spice" signature="Lnet/sssanma/spice/core/Spice;" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.ui.components.ComponentTimeline" sourcefile="ComponentTimeline.java" sourcepath="net/sssanma/spice/core/ui/components/ComponentTimeline.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.ui.components.ComponentTimeline" start="51" end="51" startBytecode="65" endBytecode="65" sourcefile="ComponentTimeline.java" sourcepath="net/sssanma/spice/core/ui/components/ComponentTimeline.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" sourcefile="DialogColorPicker.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker.java"/>
+    </Class>
+    <Field classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" name="hueImgHeight" signature="I" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" sourcefile="DialogColorPicker.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" start="53" end="53" startBytecode="11" endBytecode="11" sourcefile="DialogColorPicker.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" sourcefile="DialogColorPicker.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker.java"/>
+    </Class>
+    <Field classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" name="hueImgWidth" signature="I" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" sourcefile="DialogColorPicker.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" start="54" end="54" startBytecode="17" endBytecode="17" sourcefile="DialogColorPicker.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" sourcefile="DialogColorPicker.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker.java"/>
+    </Class>
+    <Field classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" name="paleImgHeight" signature="I" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" sourcefile="DialogColorPicker.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" start="55" end="55" startBytecode="24" endBytecode="24" sourcefile="DialogColorPicker.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" sourcefile="DialogColorPicker.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker.java"/>
+    </Class>
+    <Field classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" name="paleImgWidth" signature="I" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" sourcefile="DialogColorPicker.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" start="56" end="56" startBytecode="31" endBytecode="31" sourcefile="DialogColorPicker.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old" sourcefile="DialogColorPicker_old.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker_old.java"/>
+    </Class>
+    <Field classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old" name="defaultRgb" signature="Lorg/eclipse/swt/graphics/RGB;" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old" sourcefile="DialogColorPicker_old.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker_old.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old" start="72" end="72" startBytecode="9" endBytecode="9" sourcefile="DialogColorPicker_old.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogColorPicker_old.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" abbrev="ST" category="STYLE" first="1">
+    <Class classname="net.sssanma.spice.core.ui.dialogs.DialogEditItemPlane">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogEditItemPlane" sourcefile="DialogEditItemPlane.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogEditItemPlane.java"/>
+    </Class>
+    <Method classname="net.sssanma.spice.core.ui.dialogs.DialogEditItemPlane" name="onOK" signature="(Lnet/sssanma/spice/core/ui/parts/PartOKAndCancelButtons;)V" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogEditItemPlane" start="115" end="129" startBytecode="0" endBytecode="248" sourcefile="DialogEditItemPlane.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogEditItemPlane.java"/>
+    </Method>
+    <Field classname="net.sssanma.spice.core.ui.dialogs.DialogEditItemPlane" name="session_def_size" signature="Lnet/sssanma/spice/core/Size;" isStatic="true">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogEditItemPlane" sourcefile="DialogEditItemPlane.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogEditItemPlane.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogEditItemPlane" start="126" end="126" startBytecode="88" endBytecode="88" sourcefile="DialogEditItemPlane.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogEditItemPlane.java"/>
+  </BugInstance>
+  <BugInstance type="UWF_UNWRITTEN_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UwF" category="STYLE" first="1">
+    <Class classname="net.sssanma.spice.core.ui.dialogs.DialogEditProject">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogEditProject" sourcefile="DialogEditProject.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogEditProject.java"/>
+    </Class>
+    <Field classname="net.sssanma.spice.core.ui.dialogs.DialogEditProject" name="result" signature="Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogEditProject" sourcefile="DialogEditProject.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogEditProject.java"/>
+    </Field>
+    <SourceLine classname="net.sssanma.spice.core.ui.dialogs.DialogEditProject" start="36" end="36" startBytecode="52" endBytecode="52" sourcefile="DialogEditProject.java" sourcepath="net/sssanma/spice/core/ui/dialogs/DialogEditProject.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Sun, 13 Oct 2013 08:42:27 +0900" total_classes="118" referenced_classes="306" total_bugs="15" total_size="2966" num_packages="9" vm_version="23.25-b01" cpu_seconds="40.17" clock_seconds="14.54" peak_mbytes="574.69" alloc_mbytes="910.25" gc_seconds="1.02" priority_2="15">
+    <PackageStats package="de.congrace.exp4j" total_bugs="1" total_types="45" total_size="808" priority_2="1">
+      <ClassStats class="de.congrace.exp4j.ArrayUtil" sourceFile="ArrayUtil.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.Calculable" sourceFile="Calculable.java" interface="true" size="5" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.CalculationToken" sourceFile="CalculationToken.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.CommandlineInterpreter" sourceFile="CommandlineInterpreter.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.CustomFunction" sourceFile="CustomFunction.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.CustomOperator" sourceFile="CustomOperator.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder" sourceFile="ExpressionBuilder.java" interface="false" size="132" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$1" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$10" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$11" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$12" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$13" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$14" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$15" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$16" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$17" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$18" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$19" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$2" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$20" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$21" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$22" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$23" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$24" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$3" sourceFile="ExpressionBuilder.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$4" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$5" sourceFile="ExpressionBuilder.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$6" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$7" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$8" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionBuilder$9" sourceFile="ExpressionBuilder.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ExpressionUtil" sourceFile="ExpressionUtil.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.FunctionSeparatorToken" sourceFile="FunctionSeparatorToken.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.FunctionToken" sourceFile="FunctionToken.java" interface="false" size="29" bugs="1" priority_2="1"/>
+      <ClassStats class="de.congrace.exp4j.InvalidCustomFunctionException" sourceFile="InvalidCustomFunctionException.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.NumberToken" sourceFile="NumberToken.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.OperatorToken" sourceFile="OperatorToken.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.ParenthesesToken" sourceFile="ParenthesesToken.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.RPNConverter" sourceFile="RPNConverter.java" interface="false" size="61" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.RPNExpression" sourceFile="RPNExpression.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.Token" sourceFile="Token.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.Tokenizer" sourceFile="Tokenizer.java" interface="false" size="139" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.UnknownFunctionException" sourceFile="UnknownFunctionException.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.UnparsableExpressionException" sourceFile="UnparsableExpressionException.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="de.congrace.exp4j.VariableToken" sourceFile="VariableToken.java" interface="false" size="17" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="net.sssanma.spice.core" total_bugs="3" total_types="9" total_size="160" priority_2="3">
+      <ClassStats class="net.sssanma.spice.core.AspectRatio" sourceFile="AspectRatio.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.Colors" sourceFile="Colors.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.HSV" sourceFile="HSV.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.Layer" sourceFile="Layer.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.Project" sourceFile="Project.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.Resources" sourceFile="Resources.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.Size" sourceFile="Size.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.Spice" sourceFile="Spice.java" interface="false" size="49" bugs="3" priority_2="3"/>
+      <ClassStats class="net.sssanma.spice.core.Time" sourceFile="Time.java" interface="false" size="16" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="net.sssanma.spice.core.items" total_bugs="0" total_types="4" total_size="109">
+      <ClassStats class="net.sssanma.spice.core.items.Item" sourceFile="Item.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.items.ItemPicture" sourceFile="ItemPicture.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.items.ItemPlane" sourceFile="ItemPlane.java" interface="false" size="45" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.items.ItemVideo" sourceFile="ItemVideo.java" interface="false" size="16" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="net.sssanma.spice.core.ui.components" total_bugs="4" total_types="15" total_size="395" priority_2="4">
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentPreview" sourceFile="ComponentPreview.java" interface="false" size="15" bugs="1" priority_2="1"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentResource" sourceFile="ComponentResource.java" interface="false" size="94" bugs="1" priority_2="1"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentResource$1" sourceFile="ComponentResource.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentResource$2" sourceFile="ComponentResource.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentResource$3" sourceFile="ComponentResource.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentResource$4" sourceFile="ComponentResource.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentResource$5" sourceFile="ComponentResource.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentResource$6" sourceFile="ComponentResource.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentTimeline" sourceFile="ComponentTimeline.java" interface="false" size="134" bugs="2" priority_2="2"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentTimeline$1" sourceFile="ComponentTimeline.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentTimeline$2" sourceFile="ComponentTimeline.java" interface="false" size="32" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentTimeline$3" sourceFile="ComponentTimeline.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentTimeline$4" sourceFile="ComponentTimeline.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentTimeline$5" sourceFile="ComponentTimeline.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.components.ComponentTimeline$6" sourceFile="ComponentTimeline.java" interface="false" size="22" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="net.sssanma.spice.core.ui.dialogs" total_bugs="7" total_types="21" total_size="840" priority_2="7">
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker" sourceFile="DialogColorPicker.java" interface="false" size="312" bugs="4" priority_2="4"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker$1" sourceFile="DialogColorPicker.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker$2" sourceFile="DialogColorPicker.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker$3" sourceFile="DialogColorPicker.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker$4" sourceFile="DialogColorPicker.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker$5" sourceFile="DialogColorPicker.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker$6" sourceFile="DialogColorPicker.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker$7" sourceFile="DialogColorPicker.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker$8" sourceFile="DialogColorPicker.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old" sourceFile="DialogColorPicker_old.java" interface="false" size="256" bugs="1" priority_2="1"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old$1" sourceFile="DialogColorPicker_old.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old$2" sourceFile="DialogColorPicker_old.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old$3" sourceFile="DialogColorPicker_old.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old$4" sourceFile="DialogColorPicker_old.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old$5" sourceFile="DialogColorPicker_old.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old$6" sourceFile="DialogColorPicker_old.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old$7" sourceFile="DialogColorPicker_old.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogColorPicker_old$8" sourceFile="DialogColorPicker_old.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogEditItemPlane" sourceFile="DialogEditItemPlane.java" interface="false" size="80" bugs="1" priority_2="1"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.DialogEditProject" sourceFile="DialogEditProject.java" interface="false" size="20" bugs="1" priority_2="1"/>
+      <ClassStats class="net.sssanma.spice.core.ui.dialogs.SpiceDialogs" sourceFile="SpiceDialogs.java" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="net.sssanma.spice.core.ui.parts" total_bugs="0" total_types="16" total_size="367">
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartCopyableLabel" sourceFile="PartCopyableLabel.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartCopyableLabel$1" sourceFile="PartCopyableLabel.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartCopyableLabel$2" sourceFile="PartCopyableLabel.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartOKAndCancelButtons" sourceFile="PartOKAndCancelButtons.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartOKAndCancelButtons$1" sourceFile="PartOKAndCancelButtons.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartOKAndCancelButtons$2" sourceFile="PartOKAndCancelButtons.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartSelectColor" sourceFile="PartSelectColor.java" interface="false" size="41" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartSelectColor$1" sourceFile="PartSelectColor.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartSelectSize" sourceFile="PartSelectSize.java" interface="false" size="59" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartSelectSize$1" sourceFile="PartSelectSize.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartSuperSpinner" sourceFile="PartSuperSpinner.java" interface="false" size="112" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartSuperSpinner$1" sourceFile="PartSuperSpinner.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartSuperSpinner$2" sourceFile="PartSuperSpinner.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartSuperSpinner$3" sourceFile="PartSuperSpinner.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartSuperSpinner$4" sourceFile="PartSuperSpinner.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.PartSuperSpinner$5" sourceFile="PartSuperSpinner.java" interface="false" size="22" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="net.sssanma.spice.core.ui.parts.listeners" total_bugs="0" total_types="2" total_size="7">
+      <ClassStats class="net.sssanma.spice.core.ui.parts.listeners.PartListenerOKAndCancelButtons" sourceFile="PartListenerOKAndCancelButtons.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.ui.parts.listeners.PartListenerSuperSpinner" sourceFile="PartListenerSuperSpinner.java" interface="true" size="4" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="net.sssanma.spice.core.utilities" total_bugs="0" total_types="5" total_size="108">
+      <ClassStats class="net.sssanma.spice.core.utilities.FormatUtil" sourceFile="FormatUtil.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.utilities.FormatUtil$Format" sourceFile="FormatUtil.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.utilities.MathSpice" sourceFile="MathSpice.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.utilities.RGBUtil" sourceFile="RGBUtil.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="net.sssanma.spice.core.utilities.SWTAWTConverter" sourceFile="SWTAWTConverter.java" interface="false" size="47" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.eclipse.wb.swt" total_bugs="0" total_types="1" total_size="172">
+      <ClassStats class="org.eclipse.wb.swt.SWTResourceManager" sourceFile="SWTResourceManager.java" interface="false" size="172" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="1636" invocations="306" avgMicrosecondsPerInvocation="5347" maxMicrosecondsPerInvocation="134018" standardDeviationMircosecondsPerInvocation="13908"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="1288" invocations="1291" avgMicrosecondsPerInvocation="997" maxMicrosecondsPerInvocation="38561" standardDeviationMircosecondsPerInvocation="2886"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="1025" invocations="306" avgMicrosecondsPerInvocation="3350" maxMicrosecondsPerInvocation="806449" standardDeviationMircosecondsPerInvocation="46008"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="1015" invocations="1294" avgMicrosecondsPerInvocation="784" maxMicrosecondsPerInvocation="17914" standardDeviationMircosecondsPerInvocation="780"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="706" invocations="2" avgMicrosecondsPerInvocation="353010" maxMicrosecondsPerInvocation="452392" standardDeviationMircosecondsPerInvocation="99380"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="629" invocations="1256" avgMicrosecondsPerInvocation="501" maxMicrosecondsPerInvocation="15346" standardDeviationMircosecondsPerInvocation="1118"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="540" invocations="496" avgMicrosecondsPerInvocation="1089" maxMicrosecondsPerInvocation="60825" standardDeviationMircosecondsPerInvocation="3329"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="495" invocations="497" avgMicrosecondsPerInvocation="997" maxMicrosecondsPerInvocation="38617" standardDeviationMircosecondsPerInvocation="2503"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="439" invocations="496" avgMicrosecondsPerInvocation="886" maxMicrosecondsPerInvocation="28268" standardDeviationMircosecondsPerInvocation="2410"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="409" invocations="511" avgMicrosecondsPerInvocation="801" maxMicrosecondsPerInvocation="22339" standardDeviationMircosecondsPerInvocation="2058"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="368" invocations="504" avgMicrosecondsPerInvocation="731" maxMicrosecondsPerInvocation="46189" standardDeviationMircosecondsPerInvocation="2532"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="326" invocations="497" avgMicrosecondsPerInvocation="657" maxMicrosecondsPerInvocation="20955" standardDeviationMircosecondsPerInvocation="1309"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="300" invocations="306" avgMicrosecondsPerInvocation="982" maxMicrosecondsPerInvocation="31137" standardDeviationMircosecondsPerInvocation="3270"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="281" invocations="375" avgMicrosecondsPerInvocation="751" maxMicrosecondsPerInvocation="65126" standardDeviationMircosecondsPerInvocation="3502"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="270" invocations="306" avgMicrosecondsPerInvocation="883" maxMicrosecondsPerInvocation="93857" standardDeviationMircosecondsPerInvocation="5621"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="204" invocations="305" avgMicrosecondsPerInvocation="671" maxMicrosecondsPerInvocation="16226" standardDeviationMircosecondsPerInvocation="1585"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="194" invocations="306" avgMicrosecondsPerInvocation="634" maxMicrosecondsPerInvocation="20347" standardDeviationMircosecondsPerInvocation="1670"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1381621402228" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>

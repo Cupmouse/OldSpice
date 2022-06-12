@@ -1,0 +1,7 @@
+package net.sssanma.spice.core.ui.parts;
+
+import org.eclipse.swt.widgets.Label;
+
+public class PartCopyableLabel extends Label {
+
+}

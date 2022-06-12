@@ -1,0 +1,65 @@
+!SESSION 2013-08-12 14:04:50.918 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
+Framework arguments:  -product net.sssanma.spice.core.product -clearPersistedState
+Command-line arguments:  -product net.sssanma.spice.core.product -data C:\Users\sssanma\Dropbox\Spice/../runtime-net.sssanma.spice.core.product -dev file:C:/Users/sssanma/Dropbox/Spice/.metadata/.plugins/org.eclipse.pde.core/net.sssanma.spice.core.product/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog -clearPersistedState
+
+!ENTRY org.eclipse.equinox.app 0 0 2013-08-12 14:04:54.792
+!MESSAGE 製品 net.sssanma.spice.core.product が見つかりませんでした。
+
+!ENTRY org.eclipse.osgi 2 0 2013-08-12 14:04:54.921
+!MESSAGE 次のルート制約が解決されないため、1 つ以上のバンドルが解決されません:
+!SUBENTRY 1 org.eclipse.osgi 2 0 2013-08-12 14:04:54.921
+!MESSAGE バンドル initial@reference:file:../../Dropbox/Spice/net.sssanma.spice.core/ は解決されませんでした。
+!SUBENTRY 2 net.sssanma.spice.core 2 0 2013-08-12 14:04:54.921
+!MESSAGE 必要なバンドル org.eclipse.ui_0.0.0 がありません。
+!SUBENTRY 2 net.sssanma.spice.core 2 0 2013-08-12 14:04:54.922
+!MESSAGE 必要なバンドル org.eclipse.wb.rcp.swing2swt_1.6.0 がありません。
+
+!ENTRY org.eclipse.osgi 2 0 2013-08-12 14:04:54.926
+!MESSAGE 次に、解決されないバンドルの完全なリストを示します。前のログ・エントリーがあれば、ルート原因について参照してください:
+!SUBENTRY 1 org.eclipse.osgi 2 0 2013-08-12 14:04:54.926
+!MESSAGE バンドル net.sssanma.spice.core_0.0.1.qualifier [69] は解決されませんでした。
+!SUBENTRY 2 net.sssanma.spice.core 2 0 2013-08-12 14:04:54.927
+!MESSAGE 必要なバンドル org.eclipse.ui_0.0.0 がありません。
+!SUBENTRY 2 net.sssanma.spice.core 2 0 2013-08-12 14:04:54.927
+!MESSAGE 必要なバンドル org.eclipse.wb.rcp.swing2swt_1.6.0 がありません。
+
+!ENTRY org.eclipse.osgi 2 0 2013-08-12 14:04:54.990
+!MESSAGE 次のルート制約が解決されないため、1 つ以上のバンドルが解決されません:
+!SUBENTRY 1 org.eclipse.osgi 2 0 2013-08-12 14:04:54.991
+!MESSAGE バンドル initial@reference:file:../../Dropbox/Spice/net.sssanma.spice.core/ は解決されませんでした。
+!SUBENTRY 2 net.sssanma.spice.core 2 0 2013-08-12 14:04:54.991
+!MESSAGE 必要なバンドル org.eclipse.ui_0.0.0 がありません。
+!SUBENTRY 2 net.sssanma.spice.core 2 0 2013-08-12 14:04:54.992
+!MESSAGE 必要なバンドル org.eclipse.wb.rcp.swing2swt_1.6.0 がありません。
+
+!ENTRY org.eclipse.osgi 2 0 2013-08-12 14:04:54.998
+!MESSAGE 次に、解決されないバンドルの完全なリストを示します。前のログ・エントリーがあれば、ルート原因について参照してください:
+!SUBENTRY 1 org.eclipse.osgi 2 0 2013-08-12 14:04:54.999
+!MESSAGE バンドル net.sssanma.spice.core_0.0.1.qualifier [69] は解決されませんでした。
+!SUBENTRY 2 net.sssanma.spice.core 2 0 2013-08-12 14:04:55.001
+!MESSAGE 必要なバンドル org.eclipse.ui_0.0.0 がありません。
+!SUBENTRY 2 net.sssanma.spice.core 2 0 2013-08-12 14:04:55.001
+!MESSAGE 必要なバンドル org.eclipse.wb.rcp.swing2swt_1.6.0 がありません。
+
+!ENTRY org.eclipse.osgi 4 0 2013-08-12 14:04:55.051
+!MESSAGE アプリケーション・エラー
+!STACK 1
+java.lang.RuntimeException: アプリケーション ID が見つかりませんでした。
+	at org.eclipse.equinox.internal.app.EclipseAppContainer.startDefaultApp(EclipseAppContainer.java:242)
+	at org.eclipse.equinox.internal.app.MainApplicationLauncher.run(MainApplicationLauncher.java:29)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:354)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:181)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:636)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1426)

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="式 &apos;gloffd.getGL().getGL2()&apos; からローカル変数 &apos;gl2&apos; を抽出します&#x0D;&#x0A;- 元のプロジェクト: &apos;test&apos;&#x0D;&#x0A;- 変数名: &apos;gl2&apos;&#x0D;&#x0A;- 宛先メソッド: &apos;test.Tesr.main()&apos;&#x0D;&#x0A;- 変数式: &apos;gloffd.getGL().getGL2()&apos;&#x0D;&#x0A;- 式の出現箇所を変数で置換" description="ローカル変数 &apos;gl2&apos; を抽出します" final="false" id="org.eclipse.jdt.ui.extract.temp" input="/src&lt;test{Tesr.java" name="gl2" replace="true" selection="1402 23" stamp="1400986242248" version="1.0"/>
+</session>

@@ -1,0 +1,65 @@
+!SESSION 2013-08-10 21:16:34.596 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
+Framework arguments:  -product net.sssanma.spice.core.product -clearPersistedState
+Command-line arguments:  -product net.sssanma.spice.core.product -data C:\Users\sssanma\Dropbox\Spice/../runtime-net.sssanma.spice.core.product -dev file:C:/Users/sssanma/Dropbox/Spice/.metadata/.plugins/org.eclipse.pde.core/net.sssanma.spice.core.product/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog -clearPersistedState -clean
+
+!ENTRY org.eclipse.osgi 4 0 2013-08-10 21:16:36.302
+!MESSAGE The -clean (osgi.clean) option was not successful. Unable to clean the storage area: C:\Users\sssanma\Dropbox\Spice\.metadata\.plugins\org.eclipse.pde.core\net.sssanma.spice.core.product\org.eclipse.osgi
+
+!ENTRY org.eclipse.osgi 4 0 2013-08-10 21:16:36.536
+!MESSAGE 構成 C:\Users\sssanma\Dropbox\Spice\.metadata\.plugins\org.eclipse.pde.core\net.sssanma.spice.core.product\org.eclipse.osgi\.manager\.fileTable.4 (アクセスが拒否されました。) の読み取りエラー
+!STACK 0
+java.io.FileNotFoundException: C:\Users\sssanma\Dropbox\Spice\.metadata\.plugins\org.eclipse.pde.core\net.sssanma.spice.core.product\org.eclipse.osgi\.manager\.fileTable.4 (アクセスが拒否されました。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at org.eclipse.osgi.framework.internal.reliablefile.ReliableFile.getInputStream(ReliableFile.java:269)
+	at org.eclipse.osgi.framework.internal.reliablefile.ReliableFileInputStream.<init>(ReliableFileInputStream.java:92)
+	at org.eclipse.osgi.framework.internal.reliablefile.ReliableFileInputStream.<init>(ReliableFileInputStream.java:66)
+	at org.eclipse.osgi.storagemanager.StorageManager.updateTable(StorageManager.java:488)
+	at org.eclipse.osgi.storagemanager.StorageManager.open(StorageManager.java:709)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initFileManager(BaseStorage.java:226)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initialize(BaseStorage.java:160)
+	at org.eclipse.osgi.baseadaptor.BaseAdaptor.initializeStorage(BaseAdaptor.java:123)
+	at org.eclipse.osgi.framework.internal.core.Framework.<init>(Framework.java:192)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.startup(EclipseStarter.java:263)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:636)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1426)
+
+!ENTRY org.eclipse.osgi 4 0 2013-08-10 21:16:36.579
+!MESSAGE 始動エラー
+!STACK 1
+java.lang.RuntimeException: C:\Users\sssanma\Dropbox\Spice\.metadata\.plugins\org.eclipse.pde.core\net.sssanma.spice.core.product\org.eclipse.osgi\.manager\.fileTable.4 (アクセスが拒否されました。)
+	at org.eclipse.osgi.framework.internal.core.Framework.<init>(Framework.java:194)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.startup(EclipseStarter.java:263)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:636)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1426)
+Caused by: java.io.FileNotFoundException: C:\Users\sssanma\Dropbox\Spice\.metadata\.plugins\org.eclipse.pde.core\net.sssanma.spice.core.product\org.eclipse.osgi\.manager\.fileTable.4 (アクセスが拒否されました。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at org.eclipse.osgi.framework.internal.reliablefile.ReliableFile.getInputStream(ReliableFile.java:269)
+	at org.eclipse.osgi.framework.internal.reliablefile.ReliableFileInputStream.<init>(ReliableFileInputStream.java:92)
+	at org.eclipse.osgi.framework.internal.reliablefile.ReliableFileInputStream.<init>(ReliableFileInputStream.java:66)
+	at org.eclipse.osgi.storagemanager.StorageManager.updateTable(StorageManager.java:488)
+	at org.eclipse.osgi.storagemanager.StorageManager.open(StorageManager.java:709)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initFileManager(BaseStorage.java:226)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initialize(BaseStorage.java:160)
+	at org.eclipse.osgi.baseadaptor.BaseAdaptor.initializeStorage(BaseAdaptor.java:123)
+	at org.eclipse.osgi.framework.internal.core.Framework.<init>(Framework.java:192)
+	... 10 more
